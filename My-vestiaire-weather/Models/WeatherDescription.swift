@@ -25,7 +25,7 @@ class WeatherDescription: NSObject {
             if weatherArray.count > 0 {
                 self.id = weatherArray[0]["id"].int ?? 0
                 self.main = weatherArray[0]["main"].string ?? ""
-                self.weatherString = weatherArray[0]["description"].string ?? ""
+                self.weatherString = (weatherArray[0]["description"].string ?? "").capitalized
                 self.icon = weatherArray[0]["icon"].string ?? ""
             }
         }

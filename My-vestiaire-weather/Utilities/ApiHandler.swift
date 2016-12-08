@@ -17,7 +17,7 @@ public class ApiHandler: NSObject {
     private func request(url: URLConvertible, method: HTTPMethod, success: @escaping (JSON)->(), failure: @escaping (Error)->()) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(url, method: method, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate().responseJSON { (response) in
-            print(response.request?.urlRequest?.url)
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch response.result {
             case .success(let value):
                 let json = JSON(value)

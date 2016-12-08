@@ -19,6 +19,9 @@
 		8F27994A1DF91B5300AD4CE7 /* TemperatureDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2799491DF91B5300AD4CE7 /* TemperatureDetails.swift */; };
 		8F27994C1DF91CFD00AD4CE7 /* WeatherDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F27994B1DF91CFD00AD4CE7 /* WeatherDescription.swift */; };
 		8F27994F1DF9218C00AD4CE7 /* ForecastDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F27994E1DF9218C00AD4CE7 /* ForecastDetailsCell.swift */; };
+		8F2799511DF92D6E00AD4CE7 /* ParisDetailsForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2799501DF92D6E00AD4CE7 /* ParisDetailsForecastViewController.swift */; };
+		8F2799531DF92D8A00AD4CE7 /* ParisDetailsForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2799521DF92D8A00AD4CE7 /* ParisDetailsForecastViewModel.swift */; };
+		8F2799551DF9339000AD4CE7 /* AdditionalForecastDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2799541DF9339000AD4CE7 /* AdditionalForecastDetailsCell.swift */; };
 		D4E271BEC0D90E72EDDED177 /* Pods_My_vestiaire_weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE87F5C7E5A08EBE199CBC /* Pods_My_vestiaire_weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,9 @@
 		8F2799491DF91B5300AD4CE7 /* TemperatureDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureDetails.swift; path = Models/TemperatureDetails.swift; sourceTree = "<group>"; };
 		8F27994B1DF91CFD00AD4CE7 /* WeatherDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherDescription.swift; path = Models/WeatherDescription.swift; sourceTree = "<group>"; };
 		8F27994E1DF9218C00AD4CE7 /* ForecastDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastDetailsCell.swift; path = Cells/ForecastDetailsCell.swift; sourceTree = "<group>"; };
+		8F2799501DF92D6E00AD4CE7 /* ParisDetailsForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParisDetailsForecastViewController.swift; path = Controllers/ParisDetailsForecastViewController.swift; sourceTree = "<group>"; };
+		8F2799521DF92D8A00AD4CE7 /* ParisDetailsForecastViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParisDetailsForecastViewModel.swift; path = "View Models/ParisDetailsForecastViewModel.swift"; sourceTree = "<group>"; };
+		8F2799541DF9339000AD4CE7 /* AdditionalForecastDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdditionalForecastDetailsCell.swift; path = Cells/AdditionalForecastDetailsCell.swift; sourceTree = "<group>"; };
 		BFEE87F5C7E5A08EBE199CBC /* Pods_My_vestiaire_weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_vestiaire_weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C331BAC443D61B78A2BF317B /* Pods-My-vestiaire-weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My-vestiaire-weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-My-vestiaire-weather/Pods-My-vestiaire-weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				8F27993F1DF9128000AD4CE7 /* ParisForecastViewController.swift */,
+				8F2799501DF92D6E00AD4CE7 /* ParisDetailsForecastViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				8F2799441DF916F500AD4CE7 /* ParisForecastViewModel.swift */,
+				8F2799521DF92D8A00AD4CE7 /* ParisDetailsForecastViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -145,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				8F27994E1DF9218C00AD4CE7 /* ForecastDetailsCell.swift */,
+				8F2799541DF9339000AD4CE7 /* AdditionalForecastDetailsCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -275,12 +284,15 @@
 			files = (
 				8F2137CB1DF90BE500041F93 /* AppDelegate.swift in Sources */,
 				8F27993B1DF90E2D00AD4CE7 /* Constants.swift in Sources */,
+				8F2799511DF92D6E00AD4CE7 /* ParisDetailsForecastViewController.swift in Sources */,
 				8F27994A1DF91B5300AD4CE7 /* TemperatureDetails.swift in Sources */,
 				8F27994F1DF9218C00AD4CE7 /* ForecastDetailsCell.swift in Sources */,
 				8F27993D1DF90E6100AD4CE7 /* ApiHandler.swift in Sources */,
 				8F2799481DF9194800AD4CE7 /* WeatherDetails.swift in Sources */,
 				8F2799401DF9128000AD4CE7 /* ParisForecastViewController.swift in Sources */,
+				8F2799551DF9339000AD4CE7 /* AdditionalForecastDetailsCell.swift in Sources */,
 				8F2799451DF916F500AD4CE7 /* ParisForecastViewModel.swift in Sources */,
+				8F2799531DF92D8A00AD4CE7 /* ParisDetailsForecastViewModel.swift in Sources */,
 				8F27994C1DF91CFD00AD4CE7 /* WeatherDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

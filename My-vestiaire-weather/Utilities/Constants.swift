@@ -12,6 +12,7 @@ class Constants: NSObject {
     struct Urls {
         static let kOpenWeatherBaseUrl = "http://api.openweathermap.org/data/2.5"
         static let kForecast = "\(kOpenWeatherBaseUrl)/forecast/daily"
+        static let kOpenWeatherLogoUrl = "http://openweathermap.org/img/w"
     }
     
     struct Numerics {
@@ -19,6 +20,7 @@ class Constants: NSObject {
     }
     
     struct ViewControllerID {
+        static let kParisForecastDetails = "ParisForecastDetailsViewController"
     }
     
     struct Keys {
@@ -26,6 +28,11 @@ class Constants: NSObject {
     }
     
     struct CellIdentifiers {
-        static let kForecastDetails = "ForecastDetailsCell"
+        static let kForecastMainDetails = "ForecastDetailsCell"
+        static let kAdditionalForecastDetails = "AdditionalForecastDetailsCell"
+    }
+    
+    struct SegueID {
+        static let kForecastDetails = "ForecastDetailsSegue"
     }
 }

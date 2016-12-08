@@ -40,12 +40,22 @@ class ParisForecastViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.kForecastDetails) as! ForecastDetailsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.kForecastMainDetails) as! ForecastDetailsCell
         let forecastDetails = viewModel.forecastDetails[indexPath.row]
         cell.labelDayOfTheWeek.text = forecastDetails.getDayOfWeek()
-        cell.labelWeatherDescription.text = forecastDetails.weatherDescription.weatherString.capitalized
-        cell.labelTemperature.text = "\(lround(Double(forecastDetails.temperature.day)))°C"
+        cell.labelWeatherDescription.text = forecastDetails.weatherDescription.weatherString
+        cell.labelTemperature.text = forecastDetails.getFormattedTemperature(type: "day")
         return cell
+    }
+    
+    //MARK - UITableView Delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerID.kParisForecastDetails) as? ParisDetailsForecastViewController {
+            controller.viewModel.weatherDetails = viewModel.forecastDetails[indexPath.row]
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     /*
