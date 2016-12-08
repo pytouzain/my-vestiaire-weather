@@ -9,5 +9,6 @@ target 'My-vestiaire-weather' do
 
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'SDWebImage'
 
 end
