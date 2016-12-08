@@ -15,10 +15,6 @@ class Constants: NSObject {
         static let kOpenWeatherLogoUrl = "http://openweathermap.org/img/w"
     }
     
-    struct Numerics {
-        static let kAnimationDuration = 0.3
-    }
-    
     struct ViewControllerID {
         static let kParisForecastDetails = "ParisForecastDetailsViewController"
     }
