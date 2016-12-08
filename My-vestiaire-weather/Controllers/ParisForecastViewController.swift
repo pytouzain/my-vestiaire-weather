@@ -8,23 +8,44 @@
 
 import UIKit
 
-class ParisForecastViewController: UIViewController {
+class ParisForecastViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let viewModel: ParisForecastViewModel = ParisForecastViewModel()
+    
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.requestForecast()
+        tableView.tableFooterView = UIView()
+        viewModel.requestForecast(success: { 
+            self.tableView.reloadData()
+            }) { 
+                print("Display error")
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
-    func createParams() -> [String:AnyObject] {
-        return ["q": NSString(string: "Paris"), "units" : NSString(string:"metric"), "cnt" : NSNumber.init(value: 5), "appid":NSString(string: Constants.Keys.kOpenWeatherApiKey)]
+    //MARK - UITableView Data Source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.forecastDetails.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.kForecastDetails) as! ForecastDetailsCell
+        let forecastDetails = viewModel.forecastDetails[indexPath.row]
+        cell.labelDayOfTheWeek.text = forecastDetails.getDayOfWeek()
+        cell.labelWeatherDescription.text = forecastDetails.weatherDescription.weatherString.capitalized
+        cell.labelTemperature.text = "\(lround(Double(forecastDetails.temperature.day)))°C"
+        return cell
     }
     
     /*

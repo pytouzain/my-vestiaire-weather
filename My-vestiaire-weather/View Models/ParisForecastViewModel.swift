@@ -12,7 +12,7 @@ class ParisForecastViewModel: NSObject {
 
     var forecastDetails: [WeatherDetails] = []
     
-    func requestForecast () {
+    func requestForecast (success: @escaping ()->(), failure: @escaping ()->()) {
         ApiHandler.instance.getParisFiveDaysWeatherForecast(url: createForecastURL(), success: { (json) in
             print("SUCCESS")
             print(json)
@@ -20,13 +20,15 @@ class ParisForecastViewModel: NSObject {
                 print("LIST SIZE : \(list.count)")
                 for periodJson in list {
                     self.forecastDetails.append(WeatherDetails(json: periodJson))
-                    print(self.forecastDetails.last?.date)
+                    print(self.forecastDetails.last?.getDayOfWeek())
                     print(self.forecastDetails.last?.weatherDescription.weatherString)
                 }
             }
+            success()
         }) { (error) in
             print("ERROR")
             print(error)
+            failure()
         }
     }
     

@@ -25,6 +25,7 @@ class Constants: NSObject {
         static let kOpenWeatherApiKey = "648a3aac37935e5b45e09727df728ac2"
     }
     
-    struct JSONKeys {
+    struct CellIdentifiers {
+        static let kForecastDetails = "ForecastDetailsCell"
     }
 }

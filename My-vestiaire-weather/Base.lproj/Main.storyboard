@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-844" y="-277"/>
         </scene>
-        <!--Paris Forecast View Controller-->
+        <!--Paris 5 days Forecast-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ParisForecastViewController" customModule="My_vestiaire_weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ParisForecastViewController" customModule="My_vestiaire_weather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -33,13 +33,75 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cK4-7r-QGz">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ForecastDetailsCell" id="cFj-3P-K8N" customClass="ForecastDetailsCell" customModule="My_vestiaire_weather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFj-3P-K8N" id="M64-QQ-mOX">
+                                            <frame key="frameInset" width="375" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Day of the week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yY-0J-zKh">
+                                                    <frame key="frameInset" minX="8" minY="8" width="123" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Weather description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4S-yQ-Rns">
+                                                    <frame key="frameInset" minX="8" minY="37.5" width="155" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3i-Xx-mf5">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                                    <color key="textColor" red="0.74509803919999995" green="0.61960784310000006" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="f4S-yQ-Rns" secondAttribute="bottom" constant="8" id="3uX-Vo-NTk"/>
+                                                <constraint firstItem="5yY-0J-zKh" firstAttribute="leading" secondItem="M64-QQ-mOX" secondAttribute="leading" constant="16" id="IsI-hi-MT7"/>
+                                                <constraint firstItem="b3i-Xx-mf5" firstAttribute="centerY" secondItem="M64-QQ-mOX" secondAttribute="centerY" id="S0w-KH-uG8"/>
+                                                <constraint firstAttribute="trailing" secondItem="b3i-Xx-mf5" secondAttribute="trailing" constant="16" id="br3-oI-z6H"/>
+                                                <constraint firstItem="f4S-yQ-Rns" firstAttribute="leading" secondItem="M64-QQ-mOX" secondAttribute="leading" constant="16" id="cHi-tK-evF"/>
+                                                <constraint firstItem="b3i-Xx-mf5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f4S-yQ-Rns" secondAttribute="trailing" constant="8" id="iQN-Et-03t"/>
+                                                <constraint firstItem="b3i-Xx-mf5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5yY-0J-zKh" secondAttribute="trailing" constant="8" id="jQk-SX-SmS"/>
+                                                <constraint firstItem="5yY-0J-zKh" firstAttribute="top" secondItem="M64-QQ-mOX" secondAttribute="top" constant="8" id="sGW-Zn-yT0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelDayOfTheWeek" destination="5yY-0J-zKh" id="xXd-oG-2co"/>
+                                            <outlet property="labelTemperature" destination="b3i-Xx-mf5" id="6TU-Gv-ddT"/>
+                                            <outlet property="labelWeatherDescription" destination="f4S-yQ-Rns" id="AHu-Pb-djQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="LwP-el-ThT"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gfn-44-1xW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cK4-7r-QGz" secondAttribute="trailing" id="88o-mO-hS8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cK4-7r-QGz" secondAttribute="bottom" id="b7Z-OZ-uSw"/>
+                            <constraint firstItem="cK4-7r-QGz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gaU-nk-iKT"/>
+                            <constraint firstItem="cK4-7r-QGz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hum-re-z8g"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="g3C-K3-iZH"/>
+                    <navigationItem key="navigationItem" title="Paris 5 days Forecast" id="w4L-co-cwx"/>
+                    <connections>
+                        <outlet property="tableView" destination="cK4-7r-QGz" id="dC5-1z-o9q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="-276"/>
+            <point key="canvasLocation" x="-68" y="-276.61169415292358"/>
         </scene>
     </scenes>
 </document>
